@@ -1,0 +1,8 @@
+{
+  "title": "T-Rex Dino",
+  "description": "Run and jump over obstacles in this endless runner game.",
+  "keywords": ["dino", "runner", "arcade", "retro", "jump"],
+  "category": "Arcade",
+  "author": "PewPlay",
+  "playMode": "SinglePlayer"
+}
