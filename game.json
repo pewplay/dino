@@ -1,40 +1,62 @@
 {
   "$schema": "https://raw.githubusercontent.com/pewplay/pewplay/main/schema/game.schema.json",
   "title": "T-Rex Dino",
-  "description": "Run and jump over obstacles in this endless runner game.",
-  "about": "T-Rex Dino is a browser game where you jump over approaching obstacles and survive for as long as possible.\n\nStart a round in your browser and use the controls below to play.",
-  "howToPlay": "Jump over approaching obstacles and survive for as long as possible.",
+  "description": "Guide the pixel T-Rex across the desert and jump over cactus after cactus as the pace keeps rising in this free endless runner for your browser.",
+  "about": "T-Rex Dino is the classic pixel-art endless runner: a little dinosaur sprints across a black-and-white desert while cacti of every size come rushing toward it. One well-timed jump keeps the run alive, one mistimed jump ends it.\n\nThe simple rules hide a real challenge. The dinosaur keeps getting faster, cacti arrive alone or in wide clusters, and a short tap gives a lower hop than a long press, so you need to read each obstacle and adjust. Every 100 points the score counter flashes to celebrate your progress, and the best score of your session is shown next to the current one.\n\nIt is ideal for a few minutes of pure reflex play, on a computer with the keyboard or on a phone with a single finger.",
+  "howToPlay": "Press Space, the Up arrow, click or tap to make the T-Rex jump; the first jump starts the run. Hold longer for a higher jump and press the Down arrow in mid-air to drop faster. Your score grows with the distance you cover, and the run ends as soon as you hit a cactus.",
   "controls": [
     {
-      "input": "Space / Up arrow / tap",
-      "action": "Jump"
+      "input": "Space / ↑",
+      "action": "Jump (hold for a higher jump)"
+    },
+    {
+      "input": "Click / Tap",
+      "action": "Jump, or restart after a crash"
+    },
+    {
+      "input": "↓",
+      "action": "Drop faster while in the air"
+    },
+    {
+      "input": "Enter",
+      "action": "Restart after a crash"
     }
   ],
   "tips": [
-    "Use space / up arrow / tap to jump.",
-    "Try another round to practice the timing and strategy."
+    "Use short taps for single small cacti and hold the jump for wide groups.",
+    "Jump a little earlier as the game speeds up, since the dinosaur covers more ground in the air.",
+    "Press Down right after clearing a cactus to land sooner and be ready for the next one.",
+    "Keep your eyes on the right side of the screen so you see obstacles coming early."
   ],
   "faq": [
     {
-      "question": "How do I play T-Rex Dino?",
-      "answer": "Jump over approaching obstacles and survive for as long as possible."
+      "question": "Is T-Rex Dino free to play?",
+      "answer": "Yes. T-Rex Dino is completely free and runs in your browser with no download or account."
     },
     {
-      "question": "Can I play T-Rex Dino in a browser?",
-      "answer": "Yes. Open the game page and play without installing an app."
+      "question": "Can I play T-Rex Dino on a phone or tablet?",
+      "answer": "Yes. Tap anywhere on the screen to jump and tap again after a crash to restart."
+    },
+    {
+      "question": "Is my high score saved?",
+      "answer": "The high score is kept while the page stays open and shown as HI next to your score, but it resets when you reload the game."
     }
   ],
   "category": "Arcade",
   "tags": [
-    "dino",
-    "runner",
-    "arcade",
-    "retro",
-    "jump"
+    "dinosaur",
+    "endless runner",
+    "jump",
+    "pixel art",
+    "offline game"
   ],
+  "author": "PewPlay",
   "playMode": "SinglePlayer",
   "orientation": "any",
   "cover": "cover.png",
-  "draft": true,
-  "author": "PewPlay"
+  "screenshots": [
+    "screenshots/1.png",
+    "screenshots/2.png",
+    "screenshots/3.png"
+  ]
 }
