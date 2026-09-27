@@ -1,12 +1,10 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en">
 <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-  <meta charset="UTF-8">
-  <title>Dino</title>
-<script src="https://apis.google.com/js/platform.js" async defer></script>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>T-Rex Dino</title>
 
 	<!--script type="text/javascript" src="a.js"></script-->
 	<script type="text/javascript">
@@ -465,6 +463,13 @@
     case events.MOUSEUP:
     this.onKeyUp(e);
     break;
+    case 'pointerdown':
+    this.onPointerDown(e);
+    break;
+    case 'pointerup':
+    case 'pointercancel':
+    this.onPointerUp(e);
+    break;
     }
     }.bind(this))(e.type, Runner.events);
     },
@@ -475,16 +480,10 @@
     // Keys.
     document.addEventListener(Runner.events.KEYDOWN, this);
     document.addEventListener(Runner.events.KEYUP, this);
-    if (IS_MOBILE) {
-    // Mobile only touch devices.
-    this.touchController.addEventListener(Runner.events.TOUCHSTART, this);
-    this.touchController.addEventListener(Runner.events.TOUCHEND, this);
-    this.containerEl.addEventListener(Runner.events.TOUCHSTART, this);
-    } else {
-    // Mouse.
-    document.addEventListener(Runner.events.MOUSEDOWN, this);
-    document.addEventListener(Runner.events.MOUSEUP, this);
-    }
+    // Mouse, touch and pen: click / tap anywhere to jump.
+    document.addEventListener('pointerdown', this);
+    document.addEventListener('pointerup', this);
+    document.addEventListener('pointercancel', this);
     },
     /**
     * Remove all listeners.
@@ -492,13 +491,39 @@
     stopListening: function() {
     document.removeEventListener(Runner.events.KEYDOWN, this);
     document.removeEventListener(Runner.events.KEYUP, this);
-    if (IS_MOBILE) {
-    this.touchController.removeEventListener(Runner.events.TOUCHSTART, this);
-    this.touchController.removeEventListener(Runner.events.TOUCHEND, this);
-    this.containerEl.removeEventListener(Runner.events.TOUCHSTART, this);
-    } else {
-    document.removeEventListener(Runner.events.MOUSEDOWN, this);
-    document.removeEventListener(Runner.events.MOUSEUP, this);
+    document.removeEventListener('pointerdown', this);
+    document.removeEventListener('pointerup', this);
+    document.removeEventListener('pointercancel', this);
+    },
+    /**
+    * Pointer (mouse / touch / pen) down: jump.
+    * @param {Event} e
+    */
+    onPointerDown: function(e) {
+    if (e.button > 0 || this.crashed) return;
+    if (!this.activated) {
+    this.loadSounds();
+    this.activated = true;
+    }
+    if (!this.tRex.jumping) {
+    this.playSound(this.soundFx.BUTTON_PRESS);
+    this.tRex.startJump();
+    }
+    },
+    /**
+    * Pointer up: end the jump, or restart after a crash.
+    * @param {Event} e
+    */
+    onPointerUp: function(e) {
+    if (this.crashed) {
+    if (e.type == 'pointerup' &&
+    getTimeStamp() - this.time >= this.config.GAMEOVER_CLEAR_TIME) {
+    this.restart();
+    }
+    } else if (this.isRunning()) {
+    this.tRex.endJump();
+    } else if (this.paused) {
+    this.play();
     }
     },
     /**
@@ -2527,26 +2552,23 @@ html[subframe] body {
   }
 }
 </style>
+  <style>
+  /* PewPlay: centre the game and make taps jump without scrolling or zooming */
+  html, body { height: 100%; }
+  body { margin: 0; overflow: hidden; display: flex; align-items: center;
+    touch-action: none; -webkit-user-select: none; user-select: none;
+    -webkit-tap-highlight-color: transparent; }
+  #main-frame-error.interstitial-wrapper { margin: 0 auto; padding: 0 16px; }
+  </style>
+<style>
+/* Su schermi grandi il gioco (largo 600 px) viene ingrandito */
+@media (min-width:900px) and (min-height:480px){body{zoom:1.4}}
+@media (min-width:1150px) and (min-height:560px){body{zoom:1.8}}
+@media (min-width:1500px) and (min-height:700px){body{zoom:2.3}}
+</style>
 </head>
 
 <body id="t">
-<script>
-  window.fbAsyncInit = function() {
-    FB.init({
-      appId      : '576553495813787',
-      xfbml      : true,
-      version    : 'v2.2'
-    });
-  };
-
-  (function(d, s, id){
-     var js, fjs = d.getElementsByTagName(s)[0];
-     if (d.getElementById(id)) {return;}
-     js = d.createElement(s); js.id = id;
-     js.src = "//connect.facebook.net/en_US/sdk.js";
-     fjs.parentNode.insertBefore(js, fjs);
-   }(document, 'script', 'facebook-jssdk'));
-</script>
 <div id="main-frame-error" class="interstitial-wrapper" jstcache="0">
     <div id="offline-resources" jstcache="0">
     <div id="offline-resources-1x" jstcache="0">
@@ -2593,8 +2615,4 @@ html[subframe] body {
 
 </body>
 
-</html>
-<!-- partial -->
-  
-</body>
 </html>
