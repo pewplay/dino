@@ -2,6 +2,28 @@
   "$schema": "https://raw.githubusercontent.com/pewplay/pewplay/main/schema/game.schema.json",
   "title": "T-Rex Dino",
   "description": "Run and jump over obstacles in this endless runner game.",
+  "about": "T-Rex Dino is a browser game where you jump over approaching obstacles and survive for as long as possible.\n\nStart a round in your browser and use the controls below to play.",
+  "howToPlay": "Jump over approaching obstacles and survive for as long as possible.",
+  "controls": [
+    {
+      "input": "Space / Up arrow / tap",
+      "action": "Jump"
+    }
+  ],
+  "tips": [
+    "Use space / up arrow / tap to jump.",
+    "Try another round to practice the timing and strategy."
+  ],
+  "faq": [
+    {
+      "question": "How do I play T-Rex Dino?",
+      "answer": "Jump over approaching obstacles and survive for as long as possible."
+    },
+    {
+      "question": "Can I play T-Rex Dino in a browser?",
+      "answer": "Yes. Open the game page and play without installing an app."
+    }
+  ],
   "category": "Arcade",
   "tags": [
     "dino",
@@ -10,6 +32,9 @@
     "retro",
     "jump"
   ],
-  "author": "PewPlay",
-  "playMode": "SinglePlayer"
+  "playMode": "SinglePlayer",
+  "orientation": "any",
+  "cover": "cover.png",
+  "draft": true,
+  "author": "PewPlay"
 }
