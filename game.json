@@ -1,8 +1,15 @@
 {
+  "$schema": "https://raw.githubusercontent.com/pewplay/pewplay/main/schema/game.schema.json",
   "title": "T-Rex Dino",
   "description": "Run and jump over obstacles in this endless runner game.",
-  "keywords": ["dino", "runner", "arcade", "retro", "jump"],
   "category": "Arcade",
+  "tags": [
+    "dino",
+    "runner",
+    "arcade",
+    "retro",
+    "jump"
+  ],
   "author": "PewPlay",
   "playMode": "SinglePlayer"
 }
