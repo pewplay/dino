@@ -2,24 +2,32 @@
   "$schema": "https://raw.githubusercontent.com/pewplay/pewplay/main/schema/game.schema.json",
   "title": "T-Rex Dino",
   "description": "Guide the pixel T-Rex across the desert and jump over cactus after cactus as the pace keeps rising in this free endless runner for your browser.",
-  "about": "T-Rex Dino is the classic pixel-art endless runner: a little dinosaur sprints across a black-and-white desert while cacti of every size come rushing toward it. One well-timed jump keeps the run alive, one mistimed jump ends it.\n\nThe simple rules hide a real challenge. The dinosaur keeps getting faster, cacti arrive alone or in wide clusters, and a short tap gives a lower hop than a long press, so you need to read each obstacle and adjust. Every 100 points the score counter flashes to celebrate your progress, and the best score of your session is shown next to the current one.\n\nIt is ideal for a few minutes of pure reflex play, on a computer with the keyboard or on a phone with a single finger.",
-  "howToPlay": "Press Space, the Up arrow, click or tap to make the T-Rex jump; the first jump starts the run. Hold longer for a higher jump and press the Down arrow in mid-air to drop faster. Your score grows with the distance you cover, and the run ends as soon as you hit a cactus.",
+  "about": "T-Rex Dino is the classic pixel-art endless runner: a little dinosaur sprints across a black-and-white desert while cacti of every size come rushing toward it. One well-timed jump keeps the run alive, one mistimed jump ends it.\n\nThe game stretches to fit any screen, from a wide monitor to a phone held sideways. The simple rules hide a real challenge. The dinosaur keeps getting faster, cacti arrive alone or in wide clusters, and a short tap gives a lower hop than a long press, so you need to read each obstacle and adjust. Every 100 points the score counter flashes to celebrate your progress, and your best score is saved in the browser and shown as HI next to the current one.\n\nIt is ideal for a few minutes of pure reflex play, on a computer with the keyboard or on a phone with a single finger.",
+  "howToPlay": "Press Space, the Up arrow, click or tap to make the T-Rex jump; the first jump starts the run. Hold longer for a higher jump, and press the Down arrow or swipe down in mid-air to drop faster. Your score grows with the distance you cover, and the run ends as soon as you hit a cactus. After a crash, tap, click or press Space or Enter to run again.",
   "controls": [
     {
-      "input": "Space / ↑",
+      "input": "Space / ↑ / W",
       "action": "Jump (hold for a higher jump)"
     },
     {
       "input": "Click / Tap",
-      "action": "Jump, or restart after a crash"
+      "action": "Jump (hold for a higher jump), or restart after a crash"
     },
     {
-      "input": "↓",
+      "input": "↓ / S / Swipe down",
       "action": "Drop faster while in the air"
     },
     {
       "input": "Enter",
       "action": "Restart after a crash"
+    },
+    {
+      "input": "P / Esc",
+      "action": "Pause or resume"
+    },
+    {
+      "input": "M",
+      "action": "Sound on or off"
     }
   ],
   "tips": [
@@ -35,11 +43,15 @@
     },
     {
       "question": "Can I play T-Rex Dino on a phone or tablet?",
-      "answer": "Yes. Tap anywhere on the screen to jump and tap again after a crash to restart."
+      "answer": "Yes. The game fills the screen in any orientation: tap anywhere to jump, hold for a higher jump, swipe down to drop faster and tap again after a crash to restart. Holding the phone sideways gives the biggest view."
     },
     {
       "question": "Is my high score saved?",
-      "answer": "The high score is kept while the page stays open and shown as HI next to your score, but it resets when you reload the game."
+      "answer": "Yes. Your best score is saved in this browser and shown as HI next to your current score, even after you close the page."
+    },
+    {
+      "question": "What happens if I switch tabs during a run?",
+      "answer": "The game pauses automatically. Tap, click or press Space when you come back to carry on from where you left off."
     }
   ],
   "category": "Arcade",
